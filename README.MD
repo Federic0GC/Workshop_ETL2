@@ -8,7 +8,7 @@
 
 ### Los dos datasets ya extraidos pasaran cada uno por un proceso de limpieza llamado EDA, despues los datasets se tendran que combinar de tal forma que el nuevo dataset tenga valor de ambos datasets, ya sean complementando un dataset con el otro o hacer un merge con un campo esecifico que tengan los do datasets. 
 
-### Este nuevo dataset tendra su propio analizis y sera el producto final que se guardara tanto en drive, en la base de datos y con el que se hara el dashboard de este workshop.
+### Este nuevo dataset tendra su propio analisis y sera el producto final que se guardara tanto en drive, en la base de datos y con el que se hara el dashboard de este workshop.
 
 ## Herramientas utlizadas para la relizacion del proyecto
 - Python
