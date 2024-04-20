@@ -27,4 +27,8 @@ temp/
 __pycache__/
 
 #Archivos Necesarios para al ejecucion de Airflow
-*.config
+*airflow.cfg  
+*.cfg 
+*requirements.txt
+*txt 
+
