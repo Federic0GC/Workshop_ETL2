@@ -25,3 +25,6 @@ temp/
 
 #Cache especifico de carpetas individuales
 __pycache__/
+
+#Archivos Necesarios para al ejecucion de Airflow
+*.config
