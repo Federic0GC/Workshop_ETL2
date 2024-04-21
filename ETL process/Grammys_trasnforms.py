@@ -6,6 +6,7 @@ import pickle
 import logging
 import pymysql
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def load_data_from_database():
     try:
