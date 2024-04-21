@@ -34,7 +34,9 @@
 ``` export AIRFLOW_HOME=$(pwd) ```
 ### Inicia airflow por primera vez con el siguiente comando que te definiria una configuracion estandar de admin como usuario y una contraseña 
 ``` airflow standalone ```
-### Enhorabuena, Ya deberias despues de iniciar estar en el panel de airflow
+### Enhorabuena, Ya deberias despues de iniciar estar en el panel de airflow con tus credenciales poder trabajar con airflow
+![Airflow](https://cdn.discordapp.com/attachments/1068002173448896532/1231704940196659342/df6a2048-549a-46f6-9d5e-8dff3da087f1.jpeg?ex=6637ed9d&is=6625789d&hm=87171ebfb229b8a7f18f4534a3006689f0e638cb6be1fb169407eac1aa7849c0&)
+
 
 
 
