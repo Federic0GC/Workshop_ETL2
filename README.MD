@@ -21,11 +21,11 @@
 
 ## Steps to use and clone this repository
 ## 1. Clone this repository to your system
-```git clone https://github.com/Federic0GC/Workshop_ETL1.git```
+```git clone https://github.com/Federic0GC/Workshop_ETL2.git```
 ## 2. Make sure to install MySQL Workbench and Python on your system
 ## Apache Airflow Installation
 ## Linux: Create a virtual environment on your system
-``` python -m venv nombre_de_tu_entorno```
+```python -m venv your_environment_name```
 ### Make sure you are located in your virtual environment and install Airflow using pip
 ``` pip install apache-airflow```
 ### Install the requirements in your virtual environment from "requirements.txt"
