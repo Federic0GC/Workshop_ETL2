@@ -6,7 +6,6 @@ import pickle
 import logging
 import pymysql
 
-# Configurar el registro de eventos
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def load_data_from_database():
@@ -44,16 +43,13 @@ def transform_data(df):
     """
     try:
         logging.info("Buscando valores nulos en el DataFrame...")
-        # Buscar valores nulos en el DataFrame
         null_counts = df.isnull().sum()
         logging.info("Recuento de valores nulos por columna:")
         logging.info(null_counts)
 
         logging.info("Eliminando filas con valores nulos en columnas específicas 'nominee', 'artist', 'workers', 'img'")
-        # Eliminar filas con valores nulos en columnas específicas
         df.dropna(subset=['nominee', 'artist', 'workers', 'img'], inplace=True)
         logging.info("Transformando las columnas 'published_at' y 'updated_at'...")
-        # Cambiar el tipo de dato de las columnas 'published_at' y 'updated_at' a datetime
         df['published_at'] = pd.to_datetime(df['published_at'], utc=True)
         df['updated_at'] = pd.to_datetime(df['updated_at'], utc=True)
         
@@ -74,23 +70,18 @@ def show_transformed_data(df):
         logging.error(f"Error al mostrar los datos transformados: {e}")
 
 
-# Cargar datos desde la base de datos
 grammy_awards_df = load_data_from_database()
 
 if grammy_awards_df is not None:
-    # Mostrar el dataset antes de las transformaciones
     logging.info("Dataset original:")
     logging.info(grammy_awards_df.head())
     logging.info(grammy_awards_df.info())
     
-    # Realizar transformaciones en el DataFrame
     transformed_df = transform_data(grammy_awards_df)
     
     if transformed_df is not None:
-        # Mostrar el dataset transformado
         show_transformed_data(transformed_df)
         
-        # Guardar el dataset transformado como archivo pickle
         with open('grammy_awards_df.pkl', 'wb') as f:
             pickle.dump(transformed_df, f)
             

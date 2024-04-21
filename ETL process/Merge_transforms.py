@@ -97,7 +97,7 @@ if grammy_df is not None and spotify_df is not None:
         db_password = os.getenv("DB_PASSWORD")
         db_host = os.getenv("DB_HOST")
         db_database = os.getenv("DB_DATABASE")
-        table_name = 'workshop_002_merged3'
+        table_name = 'workshop_002_merged'
         
         save_to_database(merged_df, db_user, db_password, db_host, db_database, table_name)
 
