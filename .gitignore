@@ -29,6 +29,4 @@ __pycache__/
 #Archivos Necesarios para al ejecucion de Airflow
 *airflow.cfg  
 *.cfg 
-*requirements.txt
-*txt 
 
