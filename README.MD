@@ -1,16 +1,15 @@
-# Workshop_ETL 2 
 
-## Contexto
+# Workshop_ETL 2
+
+## Context
 
 ### Workshop 2: ETL Process using airflow
+### This project focuses on an ETL process that will be demonstrated and executed in a pipeline using Apache Airflow. The idea is to extract two dataframes, one from a CSV file (Spotify Dataset) and another dataset extracted from a database connection, storing the dataset first in a database and then connecting to the database to extract the dataframe (Grammys Awards Dataset).
 
-### Este proyecto se enfoca en un proceso de ETL que se mostrara y ejecutara en un pipeline usando Apache Airflow, la idea es extraer dos dataframes, uno que se trabajara extrayendolo desde un csv (Spotify Dataset) y otro dataset que se va a extraer desde una conexion con una base de datos, guardando el dataset primero en una base de datos para despues conectarse a la base de datos y extraer el datframe ( Grammys Awards Dataset). 
+### Both extracted datasets will undergo a cleaning process called EDA. Then, the datasets will need to be combined in such a way that the new dataset has value from both datasets, either by complementing one dataset with the other or by merging with a specific field that both datasets have.
 
-### Los dos datasets ya extraidos pasaran cada uno por un proceso de limpieza llamado EDA, despues los datasets se tendran que combinar de tal forma que el nuevo dataset tenga valor de ambos datasets, ya sean complementando un dataset con el otro o hacer un merge con un campo esecifico que tengan los do datasets. 
+### This new dataset will undergo its own analysis and will be the final product that will be stored both in Drive, in the database, and will be used to create the dashboard for this workshop.
 
-### Este nuevo dataset tendra su propio analisis y sera el producto final que se guardara tanto en drive, en la base de datos y con el que se hara el dashboard de este workshop.
-
-## Herramientas utlizadas para la relizacion del proyecto
 - Python
 - Jupyter notebook
 - CSV files
@@ -19,22 +18,23 @@
 - PowerBI
 - Docker
 
-## Pasos para utlizar y clonar este repositorio
-## 1. Clona este repositorio en tu sistema 
+
+## Steps to use and clone this repository
+## 1. Clone this repository to your system
 ```git clone https://github.com/Federic0GC/Workshop_ETL1.git```
-## 2. Asegurate de instalarte en tu sistema las herramientas MySQL Workbench y Python
-## Instalacion de Apache Airflow
-## Linux: Crea un entorno virtual en tu sistema
+## 2. Make sure to install MySQL Workbench and Python on your system
+## Apache Airflow Installation
+## Linux: Create a virtual environment on your system
 ``` python -m venv nombre_de_tu_entorno```
-### Aegurate de estar ubicado en tu entorno virtual e instala airflow con pip
+### Make sure you are located in your virtual environment and install Airflow using pip
 ``` pip install apache-airflow```
-### instala los requerimeitnos en tu entorno virtual "requeriments.txt"
+### Install the requirements in your virtual environment from "requirements.txt"
 ``` pip install -r requeriments.txt```
-### Define la variable AIRFLOW_HOME como la raiz del proyecto (debes estar ubicada en ella)
+### Define the AIRFLOW_HOME variable as the root of the project (you should be located within it)
 ``` export AIRFLOW_HOME=$(pwd) ```
-### Inicia airflow por primera vez con el siguiente comando que te definiria una configuracion estandar de admin como usuario y una contraseña 
+### Start Airflow for the first time with the following command, which will set up a standard admin configuration with a username and password
 ``` airflow standalone ```
-### Enhorabuena, Ya deberias despues de iniciar estar en el panel de airflow con tus credenciales poder trabajar con airflow
+### Congratulations! After starting, you should be able to work with Airflow by accessing the Airflow panel with your credentials
 ![Airflow](https://cdn.discordapp.com/attachments/1068002173448896532/1231704940196659342/df6a2048-549a-46f6-9d5e-8dff3da087f1.jpeg?ex=6637ed9d&is=6625789d&hm=87171ebfb229b8a7f18f4534a3006689f0e638cb6be1fb169407eac1aa7849c0&)
 
 
