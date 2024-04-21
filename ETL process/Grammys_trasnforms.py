@@ -6,13 +6,8 @@ import pickle
 import logging
 import pymysql
 
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def load_data_from_database():
-    """
-    Función para establecer la conexión con la base de datos y cargar los datos en un DataFrame.
-    Devuelve el DataFrame cargado con los datos.
-    """
     try:
         load_dotenv()
 
@@ -23,7 +18,7 @@ def load_data_from_database():
 
         mysql_connection_str = f'mysql+pymysql://{db_user}:{db_password}@{db_host}/{db_database}'
         db_connection = create_engine(mysql_connection_str)
-        logging.info("Conexión establecida con la base de datos...")
+        logging.info("Connection established with the database...")
 
         table_name = 'grammy_awards'
         query = f'SELECT * FROM {table_name}'
@@ -32,48 +27,44 @@ def load_data_from_database():
         return grammy_awards_df
 
     except Exception as e:
-        logging.error(f"Fallo al conectar a la base de datos MySQL: {e}")
+        logging.error(f"Failed to connect to MySQL database: {e}")
         return None
 
 
 def transform_data(df):
-    """
-    Función para realizar las transformaciones necesarias en el DataFrame.
-    Devuelve el DataFrame transformado.
-    """
     try:
-        logging.info("Buscando valores nulos en el DataFrame...")
+        logging.info("Checking for null values in the DataFrame...")
         null_counts = df.isnull().sum()
-        logging.info("Recuento de valores nulos por columna:")
+        logging.info("Null value count per column:")
         logging.info(null_counts)
 
-        logging.info("Eliminando filas con valores nulos en columnas específicas 'nominee', 'artist', 'workers', 'img'")
+        logging.info("Dropping rows with null values in specific columns 'nominee', 'artist', 'workers', 'img'")
         df.dropna(subset=['nominee', 'artist', 'workers', 'img'], inplace=True)
-        logging.info("Transformando las columnas 'published_at' y 'updated_at'...")
+        logging.info("Transforming columns 'published_at' and 'updated_at'...")
         df['published_at'] = pd.to_datetime(df['published_at'], utc=True)
         df['updated_at'] = pd.to_datetime(df['updated_at'], utc=True)
         
         return df
 
     except Exception as e:
-        logging.error(f"Error en el proceso de transformación: {e}")
+        logging.error(f"Error during transformation process: {e}")
         return None
 
 
 def show_transformed_data(df):
     try:
-        logging.info("Dataset PostTransformaciones:")
+        logging.info("Dataset After Transformations:")
         logging.info(df.head())
         logging.info(df.info())
 
     except Exception as e:
-        logging.error(f"Error al mostrar los datos transformados: {e}")
+        logging.error(f"Error displaying transformed data: {e}")
 
 
 grammy_awards_df = load_data_from_database()
 
 if grammy_awards_df is not None:
-    logging.info("Dataset original:")
+    logging.info("Original Dataset:")
     logging.info(grammy_awards_df.head())
     logging.info(grammy_awards_df.info())
     
@@ -86,6 +77,6 @@ if grammy_awards_df is not None:
             pickle.dump(transformed_df, f)
             
     else:
-        logging.error("Error durante las transformaciones.")
+        logging.error("Error during transformations.")
 else:
-    logging.error("Error al cargar los datos desde la base de datos.")
+    logging.error("Error loading data from the database.")
