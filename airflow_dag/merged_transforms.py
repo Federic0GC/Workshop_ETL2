@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import logging
 
-def dataset_merged(**kwargs):
+def dataset_merged_spotify_and_grammy(**kwargs):
     try:
         ti = kwargs["ti"]
         grammy_df_str = ti.xcom_pull(task_ids="transform_grammy_data")
@@ -21,13 +21,12 @@ def dataset_merged(**kwargs):
         logging.info(merged_df.info())
         
         csv_filename = 'transformed_dataset_workshop.csv'
-        logging.info(f"Guardando DataFrame fusionado como archivo CSV: {csv_filename}")
+        logging.info(f"Saving merged DataFrame as CSV file: {csv_filename}")
         merged_df.to_csv(csv_filename, index=False)
-        logging.info("DataFrame guardado como archivo CSV correctamente.")
+        logging.info("DataFrame saved as CSV file successfully.")
         
         return merged_df.to_json(orient='records')
     
     except Exception as e:
-        logging.error(f"Error en el proceso de fusión de datasets: {e}")
+        logging.error(f"Error in the dataset merging process: {e}")
         return None
-

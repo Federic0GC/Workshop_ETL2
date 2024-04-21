@@ -24,9 +24,8 @@ def save_merge_to_database(**kwargs):
             
             merged_data_df.to_sql('workshop_002_merged', con=engine, if_exists='replace', index=False)
             
-            logging.info("Merge guardado correctamente en la tabla 'workshop_002_merged'.")
+            logging.info("Merge saved successfully in the 'workshop_002_merged' table.")
         else:
-            logging.info("No se recibieron datos válidos del merge.")
+            logging.info("No valid data received from the merge.")
     except Exception as e:
-        logging.error(f"Error al guardar el merge en la base de datos: {e}")
-
+        logging.error(f"Error while saving the merge to the database: {e}")

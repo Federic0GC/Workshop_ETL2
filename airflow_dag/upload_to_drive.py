@@ -22,8 +22,8 @@ def upload_to_drive(**kwargs):
             file.SetContentFile(file_path)
             file.Upload()
 
-            logging.info(f"Archivo '{file_name}' subido correctamente a Google Drive.")
+            logging.info(f"File '{file_name}' uploaded successfully to Google Drive.")
         else:
-            logging.info("No se recibió el archivo para subir a Google Drive.")
+            logging.info("No file received to upload to Google Drive.")
     except Exception as e:
-        logging.error(f"Error al subir el archivo a Google Drive: {e}")
+        logging.error(f"Error uploading the file to Google Drive: {e}")
