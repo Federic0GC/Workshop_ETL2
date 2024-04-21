@@ -29,7 +29,7 @@
 ### Make sure you are located in your virtual environment and install Airflow using pip
 ``` pip install apache-airflow```
 ### Install the requirements in your virtual environment from "requirements.txt"
-``` pip install -r requeriments.txt```
+``` pip install -r requirements.txt```
 ### Define the AIRFLOW_HOME variable as the root of the project (you should be located within it)
 ``` export AIRFLOW_HOME=$(pwd) ```
 ### Start Airflow for the first time with the following command, which will set up a standard admin configuration with a username and password
